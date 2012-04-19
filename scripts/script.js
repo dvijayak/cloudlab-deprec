@@ -96,8 +96,8 @@ function viewLabsInit() {
 function editorInit() {
 	
 	window.aceEditor.setTheme("ace/theme/eclipse");
-	var JavaMode = require("ace/mode/java").Mode;
-	window.aceEditor.getSession().setMode(new JavaMode());	
+	var DefaultMode = require("ace/mode/c_cpp").Mode;
+	window.aceEditor.getSession().setMode(new DefaultMode());	
 	var text = 'public class NewClass {\n' + 
 	'\tpublic static void main (String args[]) {\n' + 
 	'\t\tSystem.out.println("Hello World!");\n' + 
@@ -114,21 +114,13 @@ function editorInit() {
 }
 
 function consoleInit() {	
-	window.aceConsole.setTheme("ace/theme/asd");
+	window.aceConsole.setTheme("ace/theme/vibrant_ink");
 	var TextMode = require("ace/mode/text").Mode;
 	window.aceConsole.getSession().setMode(new TextMode());	
-	var text = "<CONSOLE>";
+	var text = "Username@cloud-lab$> ";
 	window.aceConsole.insert(text);	
 	window.aceConsole.setReadOnly(true);
-}
-
-function compilerOutInit() {
-	window.aceCompilerOut.setTheme("ace/theme/asd");
-	var TextMode = require("ace/mode/text").Mode;
-	window.aceCompilerOut.getSession().setMode(new TextMode());	
-	var text = "<COMPILER RESULTS IF APPLICABLE>";
-	window.aceCompilerOut.insert(text);	
-	window.aceCompilerOut.setReadOnly(true);
+    window.aceConsole.setShowPrintMargin(false);
 }
 
 function overlay(element) {
