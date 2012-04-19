@@ -20,6 +20,7 @@
 		<script src="ace_src/theme-kr_theme.js" type="text/javascript" charset="utf-8"></script>
 		<script src="ace_src/theme-cobalt.js" type="text/javascript" charset="utf-8"></script>
 		<script src="ace_src/mode-java.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ace_src/mode-c_cpp.js" type="text/javascript" charset="utf-8"></script>
 		<script src="ace_src/mode-html.js" type="text/javascript" charset="utf-8"></script>
 		<script src="ace_src/mode-css.js" type="text/javascript" charset="utf-8"></script>
 		<script src="ace_src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
@@ -44,8 +45,9 @@
 									<li><a href="#">JS Script</a></li>
 								</ul> -->
 							</li>
-							<!-- <li><a href="#">Open File</a></li> -->
-							<!-- <li><a href="#">Rename File</a></li> -->
+							<li><a href="#">Save</a></li>
+							<li><a href="#">Save All</a></li>
+                            <li><a href="#">Compile and Run</a></li>
 						</ul>
 					</li>
 					<li><a href="#">Edit</a>
@@ -72,25 +74,17 @@
 				</ul>
 			</div>
 		</div>
-		
-		<div id="fileViewContainer">
-			<ul>
-<!-- 				<li>
-					<a href="#" onclick="openFile()">/.../.../&lt;File Path&gt;</a>
-				</li>
-				<li>
-					<a href="#" onclick="openFile()">/.../.../&lt;File Path&gt;</a>
-				</li>
-				<li>
-					<a href="#" onclick="openFile()">/.../.../&lt;File Path&gt;</a>
-				</li>	 -->			
-			</ul>
-		</div>
 					
 		<div id="editorContainer"> 
 			<img src="images/clouds.jpg" id="back-image"/>
 			<div id="editor" class="custom_style"></div>		
-			<div id="compilerOutput" class="custom_style"></div>	
+			<div id="filePane" class="custom_style">
+                <ul class="file_list">
+                    <li class="highlight"><a>file1.c</a></li>
+                    <li>file2.c</li>
+                    <li>file.h</li>
+                </ul>
+            </div>
 			<div id="consoleOutput" class="custom_style"> </div>
 	
 			
@@ -98,12 +92,15 @@
 				window.onload = function() {
 					window.aceEditor = ace.edit("editor");			
 					window.aceConsole = ace.edit("consoleOutput");
-					window.aceCompilerOut = ace.edit("compilerOutput");
 					editorInit();
 					consoleInit();
-					compilerOutInit();
 				};
-			</script>			
+                $('.file_list li').click(function(){
+                    $('.highlight').removeClass('highlight');
+                    $(this).addClass('highlight');
+                    //add function call to update editor contents here
+                });
+			</script>
 		
 			<div id="controlBox" class="custom_style">
 				
@@ -113,7 +110,7 @@
 						<label for="mode">Mode</label>
 					  </td><td>
 						<select id="mode" size="1">
-						  <option value="ace/mode/java" selected="selected">Java</option>
+						  <option value="ace/mode/c_cpp" selected="selected">C/C++</option>
 						  <option value="ace/mode/html">HTML</option>
 						  <option value="ace/mode/css">CSS</option>
 						  <option value="ace/mode/javascript">JavaScript</option>
@@ -125,11 +122,11 @@
 						<label for="theme">Theme</label>
 					  </td><td>
 						<select id="theme" size="1">
-						  <option value="ace/theme/cobalt">Cobalt</option>
-						  <option value="ace/theme/eclipse" selected="selected">Eclipse</option>
-						  <option value="ace/theme/kr_theme">krTheme</option>
-						  <option value="ace/theme/textmate">TextMate</option>
-						  <option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+                          <option value="ace/theme/cobalt">Cobalt</option>
+                          <option value="ace/theme/eclipse">Eclipse</option>
+                          <option value="ace/theme/kr_theme">krTheme</option>
+                          <option value="ace/theme/textmate" selected="selected">TextMate</option>
+                          <option value="ace/theme/vibrant_ink">Vibrant Ink</option>
 						</select>
 					  </td>
 					</tr>
