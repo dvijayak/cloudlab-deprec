@@ -1,0 +1,85 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" id="viewport" content="height=device-height,width=device-width,user-scalable=no" />
+		<title>Cloud Lab: Code Editor</title>
+		<link href="css/style_viewlabs.css" rel="stylesheet" type="text/css">
+		<link href="css/jqueryFileTree.css" rel="stylesheet" type="text/css">
+		<!-- <script type="text/javascript" src="scripts/jquery.js"></script> -->
+		<script type="text/javascript" src="scripts/jqueryFileTree/jquery.js"></script>
+		<script type="text/javascript" src="scripts/jqueryFileTree.js"></script>
+<!-- 		<script type="text/javascript" src="scripts/jquery.tools.min.js"></script>		
+		<script type="text/javascript" src="scripts/jquery-1.7.1.js"></script>		
+		<script type="text/javascript" src="scripts/jquery.ui.core.js"></script>		
+		<script type="text/javascript" src="scripts/jquery.ui.mouse.js"></script>		
+		<script type="text/javascript" src="scripts/jquery.ui.widget.js"></script>		
+		<script type="text/javascript" src="scripts/jquery.ui.resizable.js"></script>	 -->	
+		<script type="text/javascript" src="scripts/script.js"></script>				
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				$('#fileTreeContainer').fileTree({ script: 'scripts/jqueryFileTree.php' }, function(file) { 
+					alert(file);
+				});
+				
+				viewLabsInit();
+			});
+		</script>
+	</head>
+	
+	<body>				
+	
+		<div id="barContainer">
+			<div id="titlebar">View Labs</div>
+		
+			<div id="instructorControlsToolbar" class="custom_style">
+				<ul>
+					<li><a href="#">File</a>
+						<ul>
+							<li><a href="#">New Lab</a>
+								<!-- <ul>
+									<li><a href="#">Java Class</a></li>
+									<li><a href="#">HTML File</a></li>
+									<li><a href="#">CSS Stylesheet</a></li>
+									<li><a href="#">JS Script</a></li>
+								</ul> -->
+							</li>
+							<li><a href="#">Delete Lab(s)</a></li>
+							<li><a href="#">Edit Lab</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Help</a>
+						<!-- <ul>
+							<li><a href="#">About</a></li>						
+						</ul> -->
+					 </li>
+				</ul>
+			</div>
+			
+<!-- 			<div id="fileTreeContainer">
+			
+				
+			
+			</div> -->
+			
+		</div>
+		
+		<div id="fileViewContainer">
+			<ul>
+<!-- 				<li>
+					<a href="#" onclick="openFile()">/.../.../&lt;File Path&gt;</a>
+				</li>
+				<li>
+					<a href="#" onclick="openFile()">/.../.../&lt;File Path&gt;</a>
+				</li>
+				<li>
+					<a href="#" onclick="openFile()">/.../.../&lt;File Path&gt;</a>
+				</li>	 -->			
+			</ul>
+		</div>
+
+	</body>
+	
+</html>
+
