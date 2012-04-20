@@ -4,25 +4,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" id="viewport" content="height=device-height,width=device-width,user-scalable=no" />
 		<title>Cloud Lab: Code Editor</title>
-		<link href="css/style_viewlabs.css" rel="stylesheet" type="text/css">
-		<link href="css/jqueryFileTree.css" rel="stylesheet" type="text/css">
-		<!-- <script type="text/javascript" src="scripts/jquery.js"></script> -->
-		<script type="text/javascript" src="scripts/jqueryFileTree/jquery.js"></script>
-		<script type="text/javascript" src="scripts/jqueryFileTree.js"></script>
-<!-- 		<script type="text/javascript" src="scripts/jquery.tools.min.js"></script>		
-		<script type="text/javascript" src="scripts/jquery-1.7.1.js"></script>		
+		<link href="css/style_viewlabs.css" rel="stylesheet" type="text/css">		
+		<script type="text/javascript" src="scripts/jquery.js"></script> 
+ 		<script type="text/javascript" src="scripts/jquery.tools.min.js"></script>		
+<!--		<script type="text/javascript" src="scripts/jquery-1.7.1.js"></script>		
 		<script type="text/javascript" src="scripts/jquery.ui.core.js"></script>		
 		<script type="text/javascript" src="scripts/jquery.ui.mouse.js"></script>		
 		<script type="text/javascript" src="scripts/jquery.ui.widget.js"></script>		
 		<script type="text/javascript" src="scripts/jquery.ui.resizable.js"></script>	 -->	
 		<script type="text/javascript" src="scripts/script.js"></script>				
 		<script type="text/javascript">
-			$(document).ready(function() {
-
-				$('#fileTreeContainer').fileTree({ script: 'scripts/jqueryFileTree.php' }, function(file) { 
-					alert(file);
-				});
-				
+			$(document).ready(function() {				
 				viewLabsInit();
 			});
 		</script>
@@ -31,13 +23,17 @@
 	<body>				
 	
 		<div id="barContainer">
-			<div id="titlebar">View Labs</div>
+			<div id="titlebar">
+				<div>View Labs</div>				
+				<a href="#" onclick="logOut()">Log-out</a>
+				<div id="userlabel"></div>
+			</div>						
 		
 			<div id="instructorControlsToolbar" class="custom_style">
 				<ul>
 					<li><a href="#">File</a>
 						<ul>
-							<li><a href="#">New Lab</a>
+							<li><a href="#" onclick="newLab()">New Lab</a>
 								<!-- <ul>
 									<li><a href="#">Java Class</a></li>
 									<li><a href="#">HTML File</a></li>

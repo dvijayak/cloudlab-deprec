@@ -40,6 +40,27 @@ body {
 	color: #313131; 	
 }
 
+#titlebar div {
+	float: left;	
+	padding: 0 5px;
+	color: #313131;
+}
+
+#titlebar a, #titlebar #userlabel {
+	float: right;		
+	text-decoration: none;	
+	padding: 0 5px;
+	color: #313131;
+}
+
+#titlebar a:hover, #titlebar a:active {
+	background-color: white;		
+	-moz-box-shadow: 0 1px 5px #878787;
+	-webkit-box-shadow: 0 1px 5px #878787;
+	box-shadow: 0 1px 5px #878787;
+	color: #313131;
+}
+
 #toolbar {			
 	width: 100%;
 	float: left;
@@ -95,14 +116,14 @@ body {
 
 
  #toolbar ul li:hover {
-	background-color: #EDEDED;		
+	background-color: white;		
 	-moz-box-shadow: 0 1px 5px #878787;
 	-webkit-box-shadow: 0 1px 5px #878787;
 	box-shadow: 0 1px 5px #878787;
 }
 
 #toolbar ul li:hover ul {
-	background-color: #EDEDED;	
+	background-color: white;	
 	display: block;
 	z-index: 1000;		
 	-moz-box-shadow: 0 1px 5px #878787;
@@ -111,59 +132,19 @@ body {
 } 
 
  #toolbar ul li ul li:hover ul {
-	background-color: #EDEDED;	
+	background-color: white;	
 	display: block;
 	z-index: 1000;
 	-moz-box-shadow: 0 1px 5px #878787;
 	-webkit-box-shadow: 0 1px 5px #878787;
 	box-shadow: 0 1px 5px #878787;
-}  
-
-#fileViewContainer {
-	float: left;
-	width: 15%;
-	height: 90%; 
-	background-color: #FFFFFF;	
-	-moz-box-shadow: 0 1px 5px #878787;
-	-webkit-box-shadow: 0 1px 5px #878787;
-	box-shadow: 0 1px 5px #878787;
-	
-}
-
-#fileViewContainer ul {
-	list-style: none;	
-	margin: 0;
-	padding: 0;
-}
-
-#fileViewContainer ul li {
-	margin: 0;
-	padding: 0;
-	
-	display: block;		
-}
-
-#fileViewContainer ul li a{
-	text-decoration: none;	
-	width: 100%;
-	color: #313131;
-	font-family: Impact, Charcoal, sans-serif;	
-	
-	padding-left: 5px;
-	padding-right: 5px;
-}
-
-/* #fileViewContainer ul li:hover, #fileViewContainer ul li:active,  */#fileViewContainer ul li a:hover, #fileViewContainer ul li a:active {
-	color: #FFFFFF;
-	background-color: #313131;
 }
 
 #editorContainer {	
-	/* float: left; */
-	left: 15%;
+	float: left;
 	padding: 0;
 	margin: 0;
-	width: 85%;
+	width: 100%;
 	height: 90%;
 	position: relative;
 }
@@ -178,12 +159,49 @@ body {
 	background-color: #FFFFFF;
 }
 
-#compilerOutput {
+#filePane {
 	position: absolute;
-	width: 25%;
-	height: 75%;
-	top: 0;
+	width: 24.8%;
+	height: 74.8%;
+	top: 0%;
 	left: 75%;
+    border: 1px solid #000000;			
+}
+
+#filePane ul {		
+	list-style: none;
+	margin: 0;
+	padding: 0;	
+	
+	background-color: #E1E1E1;
+	opacity: 0.8;
+	-moz-box-shadow: 0 1px 5px #878787;
+	-webkit-box-shadow: 0 1px 5px #878787;
+	box-shadow: 0 1px 5px #878787;
+
+}
+
+#filePane ul li {
+	display: block;
+	z-index: 1000;	
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Impact, Charcoal, sans-serif;
+	color: #313131;
+} 
+
+#filePane ul li a {		
+	padding-left: 10px;	
+	text-decoration: none;
+	font-family: Impact, Charcoal, sans-serif;
+	color: #313131;
+} 
+
+#fileListContainer {
+	
+	padding: 25px;
+	/* border-style: solid; */
+
 }
 
 #consoleOutput {
@@ -191,15 +209,16 @@ body {
 	width: 75%;
 	height: 25%;
 	top: 75%;	
-	left: 0;	
+	left: 0;
 }
 
 #controlBox {
 	position: absolute; 	
-	width: 25%;
-	height: 25%;
+	width: 24.8%;
+	height: 24.5%;
 	top: 75%;	
-	left: 75%;	
+	left: 75%;
+    border: 1px solid #000000;	
 }
 
 #controlBox #controls {	
@@ -208,6 +227,13 @@ body {
 
 #controlBox #applyButton {
 	margin: 0 auto;			
+}
+
+.highlight {
+    background-color: white;
+	-moz-box-shadow: 0 1px 5px #878787;
+	-webkit-box-shadow: 0 1px 5px #878787;
+	box-shadow: 0 1px 5px #878787;
 }
 
 
