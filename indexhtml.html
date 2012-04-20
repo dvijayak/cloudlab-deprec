@@ -9,37 +9,35 @@
 		<script type="text/javascript" src="scripts/jquery.tools.min.js"></script>		
 		<script type="text/javascript" src="scripts/jquery-1.7.1.js"></script>		
 		<script type="text/javascript" src="scripts/script.js"></script>		
-		<script type="text/javascript" src="scripts/phplivex.js"></script>
+		<!-- <script type="text/javascript" src="scripts/phplivex.js"></script> -->
 		<script type="text/javascript">
 			$(document).ready(function() {						
 			});
-		</script>
-		<?php include "scripts/test.php"; ?> 
+		</script>		
 	</head>
 	
 	<body>				
 		
-		<div id="header" style="text-align: center; font-size: 40px;">Welcome To CloudLab</div>
+		<div id="header">Welcome To CloudLab</div>
 		
-		<div id="centerContainer" class="custom_style">
-			<img src="images/clouds.jpg" id="back-image"/>
+		<div id="centerContainer" class="custom_style">			
 			<ul>
 				<li class="loginElements">
-					<label for="userText" style="font-size: 20px;">Username: </label>
+					<label for="userText">Username: </label>
 					<input id="userText" type="text" value="mdelong"></input>					
 				</li>
 				
 				<li class="loginElements">
-					<label for="passText" style="font-size: 20px;">Password: </label>
+					<label for="passText">Password: </label>
 					<input id="passText" type="text" value="M"></input>					
 				</li>
 				
 				<li class="loginElements">
-					<input id="loginButton" type="button" class="button_e_style" value="Log-In" onclick="logIn()"></input>
+					<input id="loginButton" type="button" value="Log-In" onclick="logIn()"></input>
 				</li>
 				
 				<li class="loadingElements" style="display: none">
-					<img src="images/loading.gif"/>
+					<img src="images/loading.png"/>
 				</li>
 									
 				<li class="loadingElements" style="display: none">
@@ -47,10 +45,10 @@
 				</li>
 				
 			</ul> 
-		
+			<img src="images/clouds.jpg" id="back-image"/>
 		</div>
 		
-		<div id="aboutContainer" class="custom_style">
+		<div id="aboutContainer">
 			About
 		</div>
 	</body>

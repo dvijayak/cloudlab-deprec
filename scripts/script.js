@@ -193,13 +193,13 @@ function newLab() {
 		"users" : prompt("Enter the usernames of the students (separated by spaces only) that you would like to assign this lab to:").split(" ")
 	};
 	
-	var fileViewContainer = document.getElementById("fileViewContainer");
+	var fileListContainer = document.getElementById("fileListContainer");
 	
-	for (var i = 0; i < fileViewContainer.childNodes.length; i++) {
+	for (var i = 0; i < fileListContainer.childNodes.length; i++) {
 		
-		if (fileViewContainer.childNodes[i].nodeName == "UL") {
+		if (fileListContainer.childNodes[i].nodeName == "UL") {
 			
-			var ulist = fileViewContainer.childNodes[i];
+			var ulist = fileListContainer.childNodes[i];
 			
 			// Append a new LI element that represents a new file called <FilePath> (modify code as needed for correct file name)
 			var listitem = document.createElement("LI");			
@@ -226,13 +226,13 @@ function deleteLab() {
 		"users" : prompt("Enter the usernames of the students (separated by spaces only) that were assigned this lab:" */
 	};
 	
-	var fileViewContainer = document.getElementById("fileViewContainer");
+	var fileListContainer = document.getElementById("fileListContainer");
 	
-	for (var i = 0; i < fileViewContainer.childNodes.length; i++) {
+	for (var i = 0; i < fileListContainer.childNodes.length; i++) {
 		
-		if (fileViewContainer.childNodes[i].nodeName == "UL") {
+		if (fileListContainer.childNodes[i].nodeName == "UL") {
 			
-			var ulist = fileViewContainer.childNodes[i];
+			var ulist = fileListContainer.childNodes[i];
 			
 			for (var j = 0; j < ulist.childNodes.length; j++) {												
 				if (ulist.childNodes[j].nodeName == "LI" && ulist.childNodes[j].firstChild.nodeName == "A") {
@@ -254,7 +254,7 @@ function openLab(fileName) {
 	// Read file contents and store in buffer (not implemented yet)
 	var buffer = fileName;
 		
-	alert(buffer);
+	window.aceViewFilePane.getSession().setValue(buffer);	
 
 }
 

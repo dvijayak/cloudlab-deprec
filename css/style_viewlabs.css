@@ -184,39 +184,61 @@ body {
 	box-shadow: 0 1px 5px #878787;
 }
 
+#contentsContainer {
+	float: left;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 90%;
+	position: relative;
+}
+
 #fileViewContainer {
 	float: left;
-	width: 15%;
-	height: 90%; 
-	background-color: #FFFFFF;	
+	width: 24.8%;	
+	height: 99.8%;
+	border: 1px solid #000000;		
+	
+}
+
+#fileViewContainer ul {		
+	list-style: none;
+	margin: 0;
+	padding: 0;	
+	
+	background-color: #E1E1E1;
+	opacity: 0.8;
 	-moz-box-shadow: 0 1px 5px #878787;
 	-webkit-box-shadow: 0 1px 5px #878787;
 	box-shadow: 0 1px 5px #878787;
-	
-}
 
-#fileViewContainer ul {
-	list-style: none;	
-	margin: 0;
-	padding: 0;
 }
 
 #fileViewContainer ul li {
-	margin: 0;
-	padding: 0;
+	display: block;
+	z-index: 1000;	
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Impact, Charcoal, sans-serif;
+	color: #313131;
+} 
+
+#fileViewContainer ul li a {		
+	padding-left: 10px;	
+	text-decoration: none;
+	font-family: Impact, Charcoal, sans-serif;
+	color: #313131;
+} 
+
+#fileListContainer {
 	
-	display: block;		
+	padding: 25px;
+	/* border-style: solid; */
+
 }
 
-#fileViewContainer ul li a{
-	text-decoration: none;	
-	width: 100%;
-	color: #313131;
-	font-family: Impact, Charcoal, sans-serif;	
-	
-	padding-left: 5px;
-	padding-right: 5px;
-}
+
+
 
 /* #fileViewContainer ul li:hover, #fileViewContainer ul li:active,  */#fileViewContainer ul li a:hover, #fileViewContainer ul li a:active {
 	color: #FFFFFF;
@@ -225,13 +247,19 @@ body {
 
 #viewFilePane {
 	position: absolute;	
-	left: 15%;	
-	width: 85%;
-	height: 90%;
+	left: 25%;	
+	width: 75%;
+	height: 100%;
 	background-color: #FFFFFF;	
 	
 }
 
+.highlight {
+    background-color: white;
+	-moz-box-shadow: 0 1px 5px #878787;
+	-webkit-box-shadow: 0 1px 5px #878787;
+	box-shadow: 0 1px 5px #878787;
+}
 
 .custom_style {
 
@@ -253,9 +281,11 @@ body {
 	border-color: transparent;
 	background-color: #3E97C9;
 	color: #F5F5F5;	
-	font-family: Verdana, cursive, sans-serif;			
+	font-family: Impact, Charcoal, sans-serif;	
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	-moz-box-shadow: 0 1px 5px #878787;
+	-webkit-box-shadow: 0 1px 5px #878787;
 	box-shadow: 0 1px 5px #878787;
 
 }
