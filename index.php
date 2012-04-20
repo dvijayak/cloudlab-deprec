@@ -35,7 +35,7 @@
 				</li>
 				
 				<li class="loginElements">
-					<input id="loginButton" type="button" value="Log-In" onclick="validate()"></input>
+					<input id="loginButton" type="button" value="Log-In" onclick="logIn()"></input>
 				</li>
 				
 				<li class="loadingElements" style="display: none">

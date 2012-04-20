@@ -20,5 +20,6 @@
 
   
 	$ajax->Run(); // Must be called inside the 'html' or 'body' tags     	
+	
 	echo "SCRIPT SUCCESSFUL!";
 ?>  

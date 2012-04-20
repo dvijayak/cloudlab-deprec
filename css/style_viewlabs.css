@@ -68,6 +68,7 @@ body {
 }
 
 #instructorControlsToolbar {			
+	display: none;
 	width: 100%;
 	float: left;
 	line-height: normal;
@@ -147,17 +148,40 @@ body {
 	box-shadow: 0 1px 5px #878787;
 }  
 
+#studentControlsToolbar {		
+	display: none;
+	width: 100%;
+	float: left;
+	line-height: normal;
+	padding-top: 10px;
+/*  	border-style: solid;  */
+}
 
+#studentControlsToolbar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 
-#fileTreeContainer {
+#studentControlsToolbar ul li {
+	float: left;	
+	margin: 0;	
+	position: relative;
+}
 
-	width: 50%;
-	height: 100%;
+#studentControlsToolbar ul li a {		
+	padding: 5px 10px;	
+	display: block;
+	text-decoration: none;
+	font-family: Impact, Charcoal, sans-serif;
+	color: #313131;
+}
 
-	background: #FFF;
-	overflow: scroll;
-	padding: 5px;
-
+#studentControlsToolbar ul li :hover {
+	background-color: white;		
+	-moz-box-shadow: 0 1px 5px #878787;
+	-webkit-box-shadow: 0 1px 5px #878787;
+	box-shadow: 0 1px 5px #878787;
 }
 
 #fileViewContainer {
@@ -199,20 +223,13 @@ body {
 	background-color: #313131;
 }
 
-#controlBox {
-	position: absolute; 	
-	width: 25%;
-	height: 25%;
-	top: 75%;	
-	left: 75%;	
-}
-
-#controlBox #controls {	
-	margin: 0 auto;
-}
-
-#controlBox #applyButton {
-	margin: 0 auto;			
+#viewFilePane {
+	position: absolute;	
+	left: 15%;	
+	width: 85%;
+	height: 90%;
+	background-color: #FFFFFF;	
+	
 }
 
 

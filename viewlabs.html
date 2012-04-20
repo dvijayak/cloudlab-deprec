@@ -6,7 +6,9 @@
 		<title>Cloud Lab: Code Editor</title>
 		<link href="css/style_viewlabs.css" rel="stylesheet" type="text/css">		
 		<script type="text/javascript" src="scripts/jquery.js"></script> 
- 		<script type="text/javascript" src="scripts/jquery.tools.min.js"></script>		
+ 		<script type="text/javascript" src="scripts/jquery.tools.min.js"></script>	
+		<script src="ace_src/ace.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="ace_src/theme-vibrant_ink.js" type="text/javascript" charset="utf-8"></script>		
 <!--		<script type="text/javascript" src="scripts/jquery-1.7.1.js"></script>		
 		<script type="text/javascript" src="scripts/jquery.ui.core.js"></script>		
 		<script type="text/javascript" src="scripts/jquery.ui.mouse.js"></script>		
@@ -14,8 +16,13 @@
 		<script type="text/javascript" src="scripts/jquery.ui.resizable.js"></script>	 -->	
 		<script type="text/javascript" src="scripts/script.js"></script>				
 		<script type="text/javascript">
-			$(document).ready(function() {				
-				viewLabsInit();
+			$(document).ready(function() {	
+				window.onload = function() {
+					window.aceViewFilePane = ace.edit("viewFilePane");			
+					viewFilePaneInit();
+					viewLabsInit();					
+				};
+
 			});
 		</script>
 	</head>
@@ -41,8 +48,8 @@
 									<li><a href="#">JS Script</a></li>
 								</ul> -->
 							</li>
-							<li><a href="#">Delete Lab(s)</a></li>
-							<li><a href="#">Edit Lab</a></li>
+							<li><a href="#" onclick="deleteLab()">Delete Lab(s)</a></li>
+							<!-- <li><a href="#">Edit Lab</a></li> -->
 						</ul>
 					</li>
 					<li><a href="#">Help</a>
@@ -51,6 +58,17 @@
 						</ul> -->
 					 </li>
 				</ul>
+			</div>
+			
+			<div id="studentControlsToolbar" class="custom_style">
+				<ul>
+					<li><a href="#" name="" onclick="editLab()">Edit Lab: </a></li>
+					<script type="text/javascript">
+						$("#studentControlsToolbar a").click(function(){
+							alert("Clicked!");
+						});
+					</script>
+				</ul>				
 			</div>
 			
 <!-- 			<div id="fileTreeContainer">
@@ -63,6 +81,9 @@
 		
 		<div id="fileViewContainer">
 			<ul>
+				<li>
+					<a href="#" onclick="openLab()0
+				</li>
 <!-- 				<li>
 					<a href="#" onclick="openFile()">/.../.../&lt;File Path&gt;</a>
 				</li>
@@ -74,6 +95,8 @@
 				</li>	 -->			
 			</ul>
 		</div>
+		
+		<div id="viewFilePane" class="custom_style"></div>
 
 	</body>
 	

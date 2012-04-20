@@ -2,6 +2,8 @@ var loginElements = document.getElementsByClassName('loginElements');
 var loadingElements = document.getElementsByClassName('loadingElements');
 
 var response;
+var loggedUser; 
+var loggedIsInstructor;
 
 var validUsers = [
 	{
@@ -20,6 +22,8 @@ var validUsers = [
 		"role": 0
 	}
 ];	
+
+var projectTypes = ["C", "C++", "BB"];
 
 function validate(){  
     val = document.getElementById("userText").value;  
@@ -138,33 +142,56 @@ function isInstructor(user) {
 // View Labs Page
 //**********************************
 
-function viewLabsInit() {
+function viewLabsInit() {	
 
-	var user = (new String(window.location)).split("?")[1].split("=")[1];
+	var loggedUser = (new String(window.location)).split("?")[1].split("=")[1];
+	var loggedIsInstructor = (new String(window.location).split("?")[2] != undefined) ? new String(window.location).split("?")[2].split("=")[1] : undefined; 			
 	
-	if (checkValidResource(user) == true) {		
+	if (checkValidResource(loggedUser) == true) {		
 		alert("Security Breach: Trespasser has attempted to access a private user space!");
 		// location.href = "index.html";		
 		location.href = "index.php";		
 		return;
 	}
 	else {
-		if (user != undefined) 		
+		if (loggedUser != undefined) 		
 			// document.getElementById("titlebar").childNodes[1].innerHTML += user + ": View Labs";					
-			document.getElementById("userlabel").innerHTML = user + ":";					
-	}
-	
-	//------------------------
-	// Code for loading all the user's labs 
-	//------------------------
-	
+			document.getElementById("userlabel").innerHTML = loggedUser + ":";					
 		
+		if (loggedIsInstructor) {
+		
+			forceElementDisplay(document.getElementById("instructorControlsToolbar"), "ON");
+		
+		}
+		else
+			forceElementDisplay(document.getElementById("studentControlsToolbar"), "ON");
+		
+		//------------------------
+		// Code for loading all the user's labs 
+		//------------------------				
+	
+	}		
+		
+}
+
+function viewFilePaneInit() {	
+	
+	var TextMode = require("ace/mode/text").Mode;
+	window.aceViewFilePane.getSession().setMode(new TextMode());	
+	// var text = "Username@cloud-lab$> ";
+	// window.aceViewFilePane.insert(text);	
+	window.aceViewFilePane.setReadOnly(true);
+    window.aceViewFilePane.setShowPrintMargin(false);
+	window.aceViewFilePane.renderer.setShowGutter(false);
 }
 
 function newLab() {
 	
-	var newLab = prompt("Enter the name of the new lab:", "defaultLab");		
-	var assignedStudents = prompt("Enter the usernames of the students (separated by spaces only) that you would like to assign this lab to :").split(" ");			
+	var newLab = {
+		"name"  : prompt("Enter the name of the new lab:", "defaultLab"),
+		"type"  : prompt("Enter the type of the lab (C [C], C++ [C++] or BlackBerry Web App [BB]"),
+		"users" : prompt("Enter the usernames of the students (separated by spaces only) that you would like to assign this lab to:").split(" ")
+	};
 	
 	var fileViewContainer = document.getElementById("fileViewContainer");
 	
@@ -178,8 +205,9 @@ function newLab() {
 			var listitem = document.createElement("LI");			
 			var anchor = document.createElement("a");
 			anchor.setAttribute("href", "#");
-			anchor.setAttribute("onclick", "openFile(\"" + newFile + "\")");
-			anchor.innerHTML = newLab;
+			anchor.setAttribute("onclick", "openLab(\"" + newLab.name + "\")");
+			anchor.setAttribute("value", newLab.name);
+			anchor.innerHTML = newLab.name;
 			listitem.appendChild(anchor);			
 			ulist.appendChild(listitem);						
 			
@@ -191,12 +219,50 @@ function newLab() {
 
 }
 
+function deleteLab() {
+
+	var delLab = {
+		"name"  : prompt("Enter the name of the lab you would like to delete", "defaultLab")/* ,
+		"users" : prompt("Enter the usernames of the students (separated by spaces only) that were assigned this lab:" */
+	};
+	
+	var fileViewContainer = document.getElementById("fileViewContainer");
+	
+	for (var i = 0; i < fileViewContainer.childNodes.length; i++) {
+		
+		if (fileViewContainer.childNodes[i].nodeName == "UL") {
+			
+			var ulist = fileViewContainer.childNodes[i];
+			
+			for (var j = 0; j < ulist.childNodes.length; j++) {												
+				if (ulist.childNodes[j].nodeName == "LI" && ulist.childNodes[j].firstChild.nodeName == "A") {
+					for (var k = 0; k < ulist.childNodes[j].firstChild.attributes.length; k++) {
+						if (delLab.name == ulist.childNodes[j].firstChild.attributes[k].value) {						
+							ulist.removeChild(ulist.childNodes[j]);
+							break;						
+						}
+					}
+				}
+			}																
+		}		
+	}	
+
+}
+
 function openLab(fileName) {
 
 	// Read file contents and store in buffer (not implemented yet)
 	var buffer = fileName;
 		
+	alert(buffer);
 
+}
+
+function editLab(fileName) {
+	if (fileName != null && fileName != undefined)
+		location.href = "editor.html?lab=" + fileName;
+	else
+		alert("Invalid Lab!");
 }
 
 
